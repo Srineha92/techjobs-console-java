@@ -1,15 +1,16 @@
 package org.launchcode.techjobs.console;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
+import java.util.prefs.PreferenceChangeEvent;
 
 /**
  * Created by LaunchCode
  */
 public class TechJobs {
 
+
     private static Scanner in = new Scanner(System.in);
+
 
     public static void main (String[] args) {
 
@@ -111,6 +112,19 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-        System.out.println("printJobs is not implemented yet");
+        if (someJobs.size() >= 1) { // returns the number of elements in this list
+
+            for (int i = 0; i < someJobs.size(); i++) {
+
+                for (Map.Entry<String, String> job : someJobs.get(i).entrySet()) {
+                    System.out.println(job.getKey() + ":" + "(" + job.getValue() + ")"); // return kek , value
+                }
+                System.out.println("***********");
+            }
+        } else{
+            System.out.println("No Results Found, Try A Different Search.");
+        }
     }
 }
+
+
