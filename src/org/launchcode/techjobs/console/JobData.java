@@ -75,12 +75,12 @@ public class JobData {
 
         for (HashMap<String, String> row : allJobs) {
 
-            String a = row.get(column); //get: returns the value from coloumn.
+            String aValue = row.get(column); //get: returns the value from coloumn.
 
-            a = a.toLowerCase(); // change into lowercase
+            aValue = aValue.toLowerCase(); // change into lowercase
             value = value.toLowerCase();
 
-            if (a.contains(value)) {
+            if (aValue.contains(value)) {
                 jobs.add(row);
             }
         }
@@ -99,13 +99,12 @@ public class JobData {
             for (Map.Entry<String, String> coloumn : row.entrySet()) { //
 
                 String x = coloumn.getKey(); // to get keys from coloumn for string
-                String y = coloumn.getKey();
+                String y = coloumn.getValue();
 
-                x = x.toLowerCase(); // change to lower case
-                y = y.toLowerCase();
 
-            if (x.contains(value) || y.contains(value)){ // add values to rows from both strings
-                job.add(row);
+
+            if (x.equalsIgnoreCase(value) || y.equalsIgnoreCase(value)){ // add values to rows from both strings
+                job.add(row); // ignore case sencitive
             }
         }
     }
